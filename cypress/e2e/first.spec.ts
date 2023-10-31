@@ -8,7 +8,7 @@ describe("First suite", () => {
   });
 
   it("First", () => {
-    cy.contains("Огляд").click();
+    cy.contains("Оглядl").click();
     ApiHelper.getCategories().then((res) => {
       cy.wrap(res).should('have.length.gte', 2);
     });
