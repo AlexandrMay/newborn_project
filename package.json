@@ -1,0 +1,28 @@
+{
+  "name": "newborn_cypress",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "cy:open:config1": "npx cypress open --env email=maysalexandr@gmail.com,password=123456 --config baseUrl=http://5.189.186.217/",
+    "cy:open:config": "npx cypress open --config baseUrl=http://5.189.186.217/",
+    "cy:run": "npx cypress run --env email=maysalexandr@gmail.com,password=123456 --config baseUrl=http://5.189.186.217/",
+    "generate:report": "npx mochawesome-merge \"cypress/results/*.json\" > mochawesome.json && npx marge mochawesome.json"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cypress": "^13.3.0",
+    "cypress-mongodb": "^6.2.0",
+    "eslint": "^8.50.0",
+    "eslint-plugin-cypress": "^2.15.1",
+    "rimraf": "^5.0.5",
+    "typescript": "^5.2.2"
+  },
+  "devDependencies": {
+    "mochawesome": "^7.1.3",
+    "mochawesome-merge": "^4.3.0",
+    "mochawesome-report-generator": "^6.2.0"
+  }
+}
