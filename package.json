@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "cy:open:config1": "npx cypress open --env email=maysalexandr@gmail.com,password=123456 --config baseUrl=http://5.189.186.217/",
     "cy:open:config": "npx cypress open --config baseUrl=http://5.189.186.217/",
-    "cy:run:chrome": "CYPRESS_CACHE_FOLDER=/root/.cache/Cypress/13.3.1/Cypress/Cypress npx cypress run --env email=maysalexandr@gmail.com,password=123456 --config baseUrl=http://5.189.186.217/ --browser chrome",
+    "cy:run:chrome": "npx cypress run --env email=maysalexandr@gmail.com,password=123456 --config baseUrl=http://5.189.186.217/ --browser chrome",
     "cy:run:firefox": "npx cypress run --env email=maysalexandr@gmail.com,password=123456 --config baseUrl=http://5.189.186.217/ --browser firefox",
     "generate:report": "npx mochawesome-merge \"cypress/results/*.json\" > mochawesome.json && npx marge mochawesome.json"
   },
