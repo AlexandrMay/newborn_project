@@ -9,7 +9,7 @@ pipeline{
             environment { HOME="."}
             steps {
                 sh 'npm i'
-                sh 'cy:run:chrome'
+                sh 'npm run cy:run:chrome'
             }
         }
     }
