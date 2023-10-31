@@ -1,5 +1,8 @@
 pipeline{
-    agent none
+    agent any
+    options {
+        ansiColor('xterm')
+    }
 
     stages {
         stage("Running test project"){
