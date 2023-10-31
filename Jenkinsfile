@@ -5,7 +5,6 @@ pipeline{
     stages {
         stage("Running test project"){
             steps {
-                sh sudo chown -R 110:115 "/.npm"
                 sh 'npm i'
                 sh 'cy:run:chrome'
             }
