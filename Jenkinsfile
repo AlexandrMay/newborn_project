@@ -1,31 +1,32 @@
 pipeline{
-    agent any
+    agent {
+        docker { image 'cypress/browsers:node-20.9.0-chrome-118.0.5993.88-1-ff-118.0.2-edge-118.0.2088.46-1'}
+    }
+    environment {
+        HOME = "${env.WORKSPACE}"
+    }
     options {
         ansiColor('xterm')
     }
 
-    parameters {
-        choice(name: "BROWSER", choices: ["chrome", "edge", "firefox"], description: "Choose a browser")
-    }
-
     stages {
-        stage("Running test project"){
-            agent {
-                docker { image 'cypress/browsers:node-20.9.0-chrome-118.0.5993.88-1-ff-118.0.2-edge-118.0.2088.46-1'}
-            }
-            environment {
-            HOME = "${env.WORKSPACE}"
-            }
+        stage ("Init dependensies") {
             steps {
                 sh 'npm i'
-                sh 'npx cypress run --env email=maysalexandr@gmail.com,password=123456 --config baseUrl=http://5.189.186.217/ --browser ${BROWSER}'
+            }
+        }
+        stage ("Run tests") {
+            steps {
+                sh 'npm run cy:run:firefox'
             }
         }
     }
 
     post {
         always {
-            publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: true, reportDir: '', reportFiles: 'index.html', reportName: 'HTML Report', reportTitles: '', useWrapperFileDirectly: true])
+            sh 'npm run generate:report'
+            publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: true, reportDir: 'mochawesome-report', reportFiles: 'mochawesome.html', reportName: 'HTML Report', reportTitles: '', useWrapperFileDirectly: true])
+            cleanWs()
         }
     }
 }
