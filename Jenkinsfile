@@ -15,15 +15,17 @@ pipeline{
                 sh 'npm i'
             }
         }
-        parallel {
-            stage ("Run tests 1") {
-                steps {
-                    sh 'npm run cy:run:firefox'
+        stage ("Run tests") {
+            parallel {
+                stage ("Run on Firefox") {
+                    steps {
+                        sh 'npm run cy:run:firefox'
+                    }
                 }
-            }
-            stage ("Run tests 2") {
-                steps {
-                    sh 'npm run cy:run:chrome'
+                stage ("Run on Chrome") {
+                    steps {
+                        sh 'npm run cy:run:chrome'
+                    }
                 }
             }
         }
