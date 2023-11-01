@@ -17,10 +17,21 @@ pipeline{
             HOME = "${env.WORKSPACE}"
             }
             steps {
-                sh 'export BROWSER=${BROWSER}'
                 sh 'npm i'
-                sh 'npm run cy:run:choise'
+                sh 'npx cypress run --env email=maysalexandr@gmail.com,password=123456 --config baseUrl=http://5.189.186.217/ --browser ${BROWSER}'
             }
+        }
+    }
+
+    post {
+        always {
+            sh 'npm run generate:report'
+        }
+    }
+
+    post {
+        always {
+            publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: true, reportDir: '', reportFiles: 'index.html', reportName: 'HTML Report', reportTitles: '', useWrapperFileDirectly: true])
         }
     }
 }
