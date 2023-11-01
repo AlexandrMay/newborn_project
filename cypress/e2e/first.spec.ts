@@ -15,7 +15,7 @@ describe("First suite", () => {
   });
 
   it("Second", () => {
-    cy.contains("Асортимент").click();
+    cy.contains("Асортиментm").click();
     cy.contains("Додати категорію").click();
     cy.get("input[type='file']").selectFile("cypress/media/photo.jpeg", {force: true});
   });
