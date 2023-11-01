@@ -17,15 +17,14 @@ pipeline{
         stage("Running test project"){
             steps {
                 sh 'npm ci'
-                sh 'npx cypress run --env email=maysalexandr@gmail.com,password=123456 --config baseUrl=http://5.189.186.217/ --browser ${BROWSER} --reporter=./var/lib/jenkins/workspace/test_pipeline_1/node_modules/mochawesome'
-                sh 'npm run generate:report'
+                sh 'npx cypress run --env email=maysalexandr@gmail.com,password=123456 --config baseUrl=http://5.189.186.217/ --browser ${BROWSER}'
             }
         }
     }
 
-    post {
-        always {
-            publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: true, reportDir: 'mochawesome-report', reportFiles: 'index.html', reportName: 'HTML Report', reportTitles: '', useWrapperFileDirectly: true])
-        }
-    }
+    // post {
+    //     always {
+    //         publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: true, reportDir: 'mochawesome-report', reportFiles: 'index.html', reportName: 'HTML Report', reportTitles: '', useWrapperFileDirectly: true])
+    //     }
+    // }
 }
