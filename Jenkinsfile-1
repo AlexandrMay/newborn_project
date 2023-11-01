@@ -17,7 +17,7 @@ pipeline{
         }
         stage ("Running tests") {
             steps {
-                sh 'npm run cy:run:chrome'
+                sh 'CYPRESS_CACHE_FOLDER=/root/.cache/Cypress/13.4.0/Cypress/Cypress npm run cy:run:chrome'
             }
         }
     }
