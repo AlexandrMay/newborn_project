@@ -12,7 +12,7 @@ pipeline{
     stages {
         stage("Running test project"){
             steps {
-                sh 'npm ci'
+                sh 'npm i'
             }
         }
         stage ("Running tests") {
