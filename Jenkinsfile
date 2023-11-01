@@ -16,16 +16,16 @@ pipeline{
             }
         }
         parallel {
-        stage ("Run tests 1") {
-            steps {
-                sh 'npm run cy:run:firefox'
+            stage ("Run tests 1") {
+                steps {
+                    sh 'npm run cy:run:firefox'
+                }
             }
-        }
-        stage ("Run tests 2") {
-            steps {
-                sh 'npm run cy:run:chrome'
+            stage ("Run tests 2") {
+                steps {
+                    sh 'npm run cy:run:chrome'
+                }
             }
-        }
         }
     }
 
