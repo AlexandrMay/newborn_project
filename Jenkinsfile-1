@@ -9,15 +9,15 @@ pipeline{
         ansiColor('xterm')
     }
 
-    // parameters {
-    //     choice(name: "BROWSER", choices: ["chrome", "edge", "firefox"], description: "Choose a browser")
-    // }
+    parameters {
+        choice(name: "BROWSER", choices: ["chrome", "edge", "firefox"], description: "Choose a browser")
+    }
 
     stages {
         stage("Running test project"){
             steps {
                 sh 'npm i'
-                sh 'npx cypress run --env email=maysalexandr@gmail.com,password=123456 --config baseUrl=http://5.189.186.217/ --browser chrome'
+                sh 'npx cypress run --env email=maysalexandr@gmail.com,password=123456 --config baseUrl=http://5.189.186.217/ --browser ${BROWSER}'
             }
         }
     }
