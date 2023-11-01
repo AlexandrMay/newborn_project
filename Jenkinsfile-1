@@ -12,7 +12,6 @@ pipeline{
     stages {
         stage("Running test project"){
             steps {
-                cleanWs()
                 sh 'npm i'
             }
         }
@@ -27,6 +26,7 @@ pipeline{
         always {
             sh 'npm run generate:report'
             publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: true, reportDir: 'mochawesome-report', reportFiles: 'index.html', reportName: 'HTML Report', reportTitles: '', useWrapperFileDirectly: true])
+            cleanWs()
         }
     }
 }
