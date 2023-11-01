@@ -12,8 +12,7 @@ pipeline{
     stages {
         stage("Running test project"){
             steps {
-                sh "rm -r /var/lib/jenkins/workspace/some_pipeline_123/node_modules"
-                sh "rm /var/lib/jenkins/workspace/some_pipeline_123/package-lock.json"
+                cleanWs()
                 sh 'npm i'
             }
         }
