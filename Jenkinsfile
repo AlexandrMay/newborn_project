@@ -4,6 +4,10 @@ pipeline{
         ansiColor('xterm')
     }
 
+    parameters {
+        choise(name: "BROWSER", choises: ["chrome", "edge", "firefox"], description: "Choose a browser")
+    }
+
     stages {
         stage("Running test project"){
             agent {
@@ -14,7 +18,7 @@ pipeline{
             }
             steps { 
                 sh 'npm i'
-                sh 'npm run cy:run:chrome'
+                sh 'npm run cy:run:choise'
             }
         }
     }
