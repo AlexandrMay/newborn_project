@@ -16,7 +16,8 @@ pipeline{
             environment {
             HOME = "${env.WORKSPACE}"
             }
-            steps { 
+            steps {
+                sh 'export BROWSER=${BROWSER}'
                 sh 'npm i'
                 sh 'npm run cy:run:choise'
             }
