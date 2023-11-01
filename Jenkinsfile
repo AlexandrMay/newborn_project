@@ -5,7 +5,7 @@ pipeline{
     }
 
     parameters {
-        choice(name: "BROWSER", choises: ["chrome", "edge", "firefox"], description: "Choose a browser")
+        choice(name: "BROWSER", choices: ["chrome", "edge", "firefox"], description: "Choose a browser")
     }
 
     stages {
