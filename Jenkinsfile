@@ -26,11 +26,6 @@ pipeline{
     post {
         always {
             sh 'npm run generate:report'
-        }
-    }
-
-    post {
-        always {
             publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: true, reportDir: '', reportFiles: 'index.html', reportName: 'HTML Report', reportTitles: '', useWrapperFileDirectly: true])
         }
     }
