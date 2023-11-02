@@ -19,7 +19,7 @@ pipeline{
             parallel {
                 stage ("Run on Firefox") {
                     steps {
-                        sh 'npm run cy:run:firefox'
+                        sh 'npm run cy:run:chrome'
                     }
                 }
                 stage ("Run on Chrome") {
