@@ -23,10 +23,13 @@
     "cypress-mongodb": "^6.2.0",
     "eslint": "^8.50.0",
     "eslint-plugin-cypress": "^2.15.1",
-    "rimraf": "^5.0.5",
-    "typescript": "^5.2.2",
     "mochawesome": "^7.1.3",
     "mochawesome-merge": "^4.3.0",
-    "mochawesome-report-generator": "^6.2.0"
+    "mochawesome-report-generator": "^6.2.0",
+    "rimraf": "^5.0.5",
+    "typescript": "^5.2.2"
+  },
+  "devDependencies": {
+    "pre-push": "^0.1.4"
   }
 }
