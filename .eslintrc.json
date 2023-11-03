@@ -1,7 +1,9 @@
 {
-    "plugins": [
-      "cypress"
-    ],
+    "extends": [
+      "eslint:recommended",
+      "plugin:@typescript-eslint/recommended",
+      "plugin:cypress/recommended"
+  ],
     "rules": {
         "cypress/no-assigning-return-values": "error",
         "cypress/no-unnecessary-waiting": "error",
@@ -15,5 +17,6 @@
     "parserOptions": {
       "sourceType": "module",
       "ecmaVersion": 6
-    }
+    },
+    "ignorePatterns": ["*.json", "*.d.ts", "*.jpeg"]
 }
