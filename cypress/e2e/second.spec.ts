@@ -8,9 +8,10 @@ describe("Second suite", () => {
   });
 
   it("First", () => {
+    const length = 2;
     cy.contains("Огляд").click();
     ApiHelper.getCategories().then((res) => {
-      cy.wrap(res).should('have.length.gte', 2);
+      cy.wrap(res).should('have.length.gte', length);
     });
   });
 
@@ -21,9 +22,10 @@ describe("Second suite", () => {
   });
 
   it("Third", () => {
+    const length = 2;
     cy.contains("Огляд").click();
     ApiHelper.getCategories().then((res) => {
-      cy.wrap(res).should('have.length.gte', 2);
+      cy.wrap(res).should('have.length.gte', length);
     });
   });
 
