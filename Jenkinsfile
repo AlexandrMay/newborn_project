@@ -19,12 +19,12 @@ pipeline{
             parallel {
                 stage ("Run on Chrome") {
                     steps {
-                        sh 'npm run cy:run:chrome'
+                        sh 'xvfb-run -a npm run cy:run:chrome'
                     }
                 }
                 stage ("Run on Firefox") {
                     steps {
-                        sh 'npm run cy:run:firefox'
+                        sh 'xvfb-run -a npm run cy:run:firefox'
                     }
                 }
             }
