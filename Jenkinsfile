@@ -1,6 +1,6 @@
 pipeline{
     agent {
-        docker { image 'cypress/browsers:node-20.9.0-chrome-118.0.5993.88-1-ff-118.0.2-edge-118.0.2088.46-1'}
+        docker { image 'docker pull cypress/included:cypress-13.5.0-node-20.9.0-chrome-118.0.5993.88-1-ff-118.0.2-edge-118.0.2088.46-1'}
     }
     environment {
         HOME = "${env.WORKSPACE}"
@@ -19,12 +19,12 @@ pipeline{
             parallel {
                 stage ("Run on Chrome") {
                     steps {
-                        sh 'xvfb-run -a npm run cy:run:chrome'
+                        sh 'npm run cy:run:chrome'
                     }
                 }
                 stage ("Run on Firefox") {
                     steps {
-                        sh 'xvfb-run -a npm run cy:run:firefox'
+                        sh 'npm run cy:run:firefox'
                     }
                 }
             }
