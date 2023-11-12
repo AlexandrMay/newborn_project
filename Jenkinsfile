@@ -24,6 +24,7 @@ pipeline{
                 }
                 stage ("Run on FF") {
                     steps {
+                        sh 'sleep 5'
                         sh 'npm run cy:run:firefox'
                     }
                 }
