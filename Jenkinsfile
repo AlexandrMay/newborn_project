@@ -17,14 +17,14 @@ pipeline{
         }
         stage ("Run tests") {
             parallel {
-                stage ("Run on Edge") {
-                    steps {
-                        sh 'npm run cy:run:edge'
-                    }
-                }
                 stage ("Run on Chrome") {
                     steps {
                         sh 'npm run cy:run:chrome'
+                    }
+                }
+                stage ("Run on Edge") {
+                    steps {
+                        sh 'npm run cy:run:edge'
                     }
                 }
             }
