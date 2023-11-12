@@ -22,9 +22,9 @@ pipeline{
                         sh 'npm run cy:run:chrome'
                     }
                 }
-                stage ("Run on Edge") {
+                stage ("Run on Firefox") {
                     steps {
-                        sh 'npm run cy:run:edge'
+                        sh 'npm run cy:run:firefox'
                     }
                 }
             }
