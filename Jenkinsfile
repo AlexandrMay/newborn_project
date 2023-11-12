@@ -17,9 +17,9 @@ pipeline{
         }
         stage ("Run tests") {
             parallel {
-                stage ("Run on Firefox") {
+                stage ("Run on Edge") {
                     steps {
-                        sh 'npm run cy:run:firefox'
+                        sh 'npm run cy:run:edge'
                     }
                 }
                 stage ("Run on Chrome") {
